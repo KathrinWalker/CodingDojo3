@@ -120,5 +120,8 @@
     <Resource Include="Images\Weather-01.png" />
     <Resource Include="Images\Wind.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shared.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

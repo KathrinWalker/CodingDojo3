@@ -22,7 +22,7 @@ namespace CodingDojo3
     {
         public MainWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

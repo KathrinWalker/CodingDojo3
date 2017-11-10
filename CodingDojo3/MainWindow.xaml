@@ -52,11 +52,27 @@
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
                     <Label Content="Sensoren" Foreground="White" Margin="5" Grid.Row="0"/>
-                    
-                    
-                    <DataGrid Grid.Row="1" Margin="5" ItemsSource="{Binding SensorList}" AutoGenerateColumns="False"/>
-                    
-                    
+
+
+                    <DataGrid Grid.Row="1" Margin="5" ItemsSource="{Binding SensorList}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="Room" Binding="{Binding Room}"/>
+                            <DataGridTextColumn Header="Mode" Binding="{Binding Mode}"/>
+                            <!--mit Dropdown Mode ändern-->
+                            <DataGridTextColumn Header="ValueType" Binding="{Binding ValueType}"/>
+                            <!--Farbdarstellung nach ValueType von Mode-->
+                            <DataGridTextColumn Binding="{Binding Mode}"/>
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
+                            <DataGridTextColumn Header="PosX" Binding="{Binding PosX}"/>
+                            <DataGridTextColumn Header="PosY" Binding="{Binding PosY}"/>
+                            
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
                     <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
                         <Button Content="Hinzufügen" Margin="5" Foreground="White" Background="Black" BorderThickness="1" BorderBrush="White"/>
                         <Button Content="Löschen" Margin="5" Foreground="White" Background="Black" BorderThickness="1" BorderBrush="White"/>

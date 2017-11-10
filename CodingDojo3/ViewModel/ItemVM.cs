@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CodingDojo3.ViewModel
 {
-    class ItemVm : ViewModelBase
+    public class ItemVm : ViewModelBase
     {
         private ItemBase baseItem;
 

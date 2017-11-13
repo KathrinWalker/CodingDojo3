@@ -4,9 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CodingDojo2"
-        xmlns:CodingDojo3="clr-namespace:CodingDojo3" x:Class="CodingDojo2.MainWindow"
+        xmlns:CodingDojo3="clr-namespace:CodingDojo3" xmlns:Converter="clr-namespace:CodingDojo3.Converter" x:Class="CodingDojo2.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" DataContext="{Binding Main, Mode=OneWay, Source={StaticResource Locator}}">
+        Title="MainWindow" Height="600" Width="800">
+    <Window.Resources>
+        <Converter:StringToBrushConverter x:Key="StringToBrushConverter"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <Binding Mode="OneWay" Path="Main" Source="{StaticResource Locator}"/>
+    </Window.DataContext>
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -76,15 +82,15 @@
                             </DataGridTemplateColumn>
 
                             <DataGridTextColumn Header="ValueType" Binding="{Binding ValueType}"/>
-                            
-                            <!--<DataGridTemplateColumn Header="Habitat">
+
+                            <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Label Content="{Binding Habitate}" VerticalAlignment="Center"/>
+                                        <Ellipse Height="20" Width="20" Fill="{Binding Mode, Converter={StaticResource StringToBrushConverter}}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>-->
-                            
+                            </DataGridTemplateColumn>
+
                             <DataGridTextColumn Binding="{Binding Mode}"/>
                             <DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
                             <DataGridTextColumn Header="PosX" Binding="{Binding PosX}"/>

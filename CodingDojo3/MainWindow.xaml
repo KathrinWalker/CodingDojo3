@@ -60,8 +60,20 @@
                             <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
                             <DataGridTextColumn Header="Room" Binding="{Binding Room}"/>
-                            <DataGridTextColumn Header="Mode" Binding="{Binding Mode}"/>
-                            <!--mit Dropdown Mode ändern-->
+                            
+                            <DataGridTemplateColumn Header="Mode">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Mode}" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox SelectedItem="{Binding Mode}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            
                             <DataGridTextColumn Header="ValueType" Binding="{Binding ValueType}"/>
                             <!--Farbdarstellung nach ValueType von Mode-->
                             <DataGridTextColumn Binding="{Binding Mode}"/>

@@ -1,9 +1,10 @@
-﻿<Window x:Class="CodingDojo2.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CodingDojo2"
+        xmlns:CodingDojo3="clr-namespace:CodingDojo3" x:Class="CodingDojo2.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" DataContext="{Binding Main, Mode=OneWay, Source={StaticResource Locator}}">
     <Grid Background="Black">
@@ -60,7 +61,7 @@
                             <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
                             <DataGridTextColumn Header="Room" Binding="{Binding Room}"/>
-                            
+
                             <DataGridTemplateColumn Header="Mode">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -69,18 +70,26 @@
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellEditingTemplate>
                                     <DataTemplate>
-                                        <ComboBox SelectedItem="{Binding Mode}"/>
+                                        <ComboBox SelectedItem="{Binding Mode}" ItemsSource="{Binding DataContext.ModeList, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellEditingTemplate>
                             </DataGridTemplateColumn>
-                            
+
                             <DataGridTextColumn Header="ValueType" Binding="{Binding ValueType}"/>
-                            <!--Farbdarstellung nach ValueType von Mode-->
+                            
+                            <!--<DataGridTemplateColumn Header="Habitat">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Habitate}" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>-->
+                            
                             <DataGridTextColumn Binding="{Binding Mode}"/>
                             <DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
                             <DataGridTextColumn Header="PosX" Binding="{Binding PosX}"/>
                             <DataGridTextColumn Header="PosY" Binding="{Binding PosY}"/>
-                            
+
                         </DataGrid.Columns>
                     </DataGrid>
 
